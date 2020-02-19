@@ -4,6 +4,14 @@
     "slug": "osteocare",
     "privacy": "public",
     "sdkVersion": "36.0.0",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.osteocare",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.yourcompany.osteocare",
+      "versionCode": 1
+    },
     "platforms": [
       "ios",
       "android",
@@ -22,9 +30,6 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
   }
 }
