@@ -30,6 +30,9 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ]
-  }
+    ],
+    "entryPoint": "node_modules/expo/AppEntry.js"
+  },
+  "displayName": "OsteoCare",
+  "name": "osteocare"
 }
