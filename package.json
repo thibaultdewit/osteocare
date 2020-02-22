@@ -13,6 +13,7 @@
   "dependencies": {
     "@expo/samples": "~36.0.0",
     "@expo/vector-icons": "~10.0.0",
+    "@react-native-firebase/app": "^6.3.4",
     "@react-navigation/web": "~1.0.0-alpha.9",
     "core-js": "^3.6.4",
     "expo": "~36.0.0",
@@ -35,12 +36,12 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "babel-jest": "~24.9.0",
+    "babel-preset-expo": "~8.0.0",
     "jest": "~24.9.0",
+    "jest-expo": "~36.0.1",
     "jetifier": "~1.6.4",
     "metro-react-native-babel-preset": "~0.56.0",
-    "react-test-renderer": "~16.9.0",
-    "babel-preset-expo": "~8.0.0",
-    "jest-expo": "~36.0.1"
+    "react-test-renderer": "~16.9.0"
   },
   "private": true
 }
