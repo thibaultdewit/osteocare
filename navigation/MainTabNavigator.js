@@ -4,9 +4,8 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import TabBarIcon from '../components/TabBarIcon';
-
 import MainContainer from '../MainContainer';
-import LinksScreen from '../screens/LinksScreen';
+import DataScreen from '../screens/DataScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const config = Platform.select({
@@ -37,21 +36,21 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const DataStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Data: DataScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
+DataStack.navigationOptions = {
   tabBarLabel: 'Data',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-stats' : 'md-stats'} />
   ),
 };
 
-LinksStack.path = '';
+DataStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -73,7 +72,7 @@ console.log('Main tab navigator')
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  DataStack,
   SettingsStack,
 });
 

@@ -6,7 +6,6 @@ import Colors from '../constants/Colors';
 
 export function CustomButton(props) {
 
-
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress} >
       <Text style={styles.text}>{props.title}</Text>

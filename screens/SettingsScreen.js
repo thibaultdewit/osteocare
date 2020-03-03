@@ -1,12 +1,12 @@
 import React from 'react';
+import {View, Text} from 'react-native';
 import { ExpoConfigView } from '@expo/samples';
 
 export default function SettingsScreen() {
-  /**
-   * Go ahead and delete ExpoConfigView and replace it with your content;
-   * we just wanted to give you a quick view of your config.
-   */
-  return <ExpoConfigView />;
+  return (
+    <View>
+      <Text>This is the setting screen</Text>
+    </View>);
 }
 
 SettingsScreen.navigationOptions = {

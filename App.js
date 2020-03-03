@@ -28,7 +28,7 @@ export default function App(props) {
  
   if (initializing) return null;
 
-  if (!user) {
+  if (false) {
     return (
       <View style={styles.loginContainer}>
         <View style={styles.headerTextView}>

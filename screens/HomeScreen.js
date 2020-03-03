@@ -17,19 +17,13 @@ import { ActiveSessionBar} from '../components/ActiveSessionBar';
 
 export default function HomeScreen(props) {
 
-  const selectWorkout = () => {
-    console.log('select workout button')
-    console.log(props.isSessionActive)
-    
-  }
-
   return (
     <View style={styles.container}>
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
         <View style={{alignItems:'center'}}><Text>Welcome to OsteoCare!</Text></View>
-        <CustomButton title='Start a new session' onPress={selectWorkout}/>
+        <CustomButton title='Start a new session' onPress={props.startNewSession}/>
         <CustomButton title='Add a new device'/>
       </ScrollView>
       <View style={{alignItems : 'center'}}>{props.isSessionActive ? <ActiveSessionBar/> : null}</View>

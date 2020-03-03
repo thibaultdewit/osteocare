@@ -1,21 +1,22 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import {ScrollView, StyleSheet, View, Text, Picker} from 'react-native';
 
-export default function LinksScreen() {
+export default function WorkoutSelectionScreen() {
   return (
-    <ScrollView style={styles.container}>
-      {/**
-       * Go ahead and delete ExpoLinksView and replace it with your content;
-       * we just wanted to provide you with some helpful links.
-       */}
-      <ExpoLinksView />
-    </ScrollView>
+    <View>
+      
+      <Text>This is the workout selection screen</Text>
+      <Picker
+        selectedValue={'js'}
+        style={{height: 50, width: 100}}
+        >
+        <Picker.Item label="Java" value="java" />
+        <Picker.Item label="JavaScript" value="js" />
+      </Picker>
+    </View>
+
   );
 }
-
-LinksScreen.navigationOptions = {
-  title: 'Links',
-};
 
 const styles = StyleSheet.create({
   container: {
