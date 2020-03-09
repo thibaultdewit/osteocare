@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 
-export function CustomButton(props) {
+export function CustomGridButton(props) {
   return (
     <TouchableOpacity style={styles.container} onPress={props.onPress} >
       <Text style={styles.text}>{props.title}</Text>
@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   container: {
       display: 'flex',
       height: 75,
+      width : 150,
       borderRadius: 5,
       justifyContent: 'center',
       alignItems: 'center',
@@ -30,9 +31,8 @@ const styles = StyleSheet.create({
       shadowOffset: { height: 10, width: 0 },
       shadowRadius: 20,
   },
-
   text: {
-      fontSize: 16,
+      fontSize: 12,
       textTransform: 'uppercase',
       color: '#FFFFFF',
       paddingLeft: 10,

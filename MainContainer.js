@@ -10,8 +10,6 @@ export default function MainContainer() {
         setScreen('workoutselection')
     }
 
-    
-
     const [screen, setScreen] = useState('home');
 
     switch(screen) {

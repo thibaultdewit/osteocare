@@ -22,7 +22,7 @@ export default function HomeScreen(props) {
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
-        <View style={{alignItems:'center'}}><Text>Welcome to OsteoCare!</Text></View>
+        <View style={{alignItems:'center'}}><Text style={{fontSize : 18}}>Welcome to OsteoCare!</Text></View>
         <CustomButton title='Start a new session' onPress={props.startNewSession}/>
         <CustomButton title='Add a new device'/>
       </ScrollView>
