@@ -12,6 +12,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1D4D31E62401EF1700131213 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D4D31E52401EF1700131213 /* GoogleService-Info.plist */; };
+		1DE9047A241722AB002AB874 /* dummy_file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE90479241722AB002AB874 /* dummy_file.swift */; };
 		3DE4DAD41476765101945408 /* libPods-osteocare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D43FF9D506E70904424FA7E9 /* libPods-osteocare.a */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = osteocare/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = osteocare/main.m; sourceTree = "<group>"; };
 		1D4D31E52401EF1700131213 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1DE90478241722AA002AB874 /* osteocare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "osteocare-Bridging-Header.h"; sourceTree = "<group>"; };
+		1DE90479241722AB002AB874 /* dummy_file.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy_file.swift; sourceTree = "<group>"; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B47C5AFCB8BDE514B7D1AC6 /* Pods-osteocare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osteocare.debug.xcconfig"; path = "Target Support Files/Pods-osteocare/Pods-osteocare.debug.xcconfig"; sourceTree = "<group>"; };
 		8AC623DBF3A3E2CB072F81F2 /* Pods-osteocare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-osteocare.release.xcconfig"; path = "Target Support Files/Pods-osteocare/Pods-osteocare.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,12 +92,14 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				1DE90479241722AB002AB874 /* dummy_file.swift */,
 				1D4D31E52401EF1700131213 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* osteocare */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				72E5486571395D51695C2A02 /* Pods */,
+				1DE90478241722AA002AB874 /* osteocare-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -142,6 +147,11 @@
 			attributes = {
 				LastUpgradeCheck = 940;
 				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1130;
+					};
+				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "osteocare" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -296,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DE9047A241722AB002AB874 /* dummy_file.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -321,6 +332,7 @@
 			baseConfigurationReference = 3B47C5AFCB8BDE514B7D1AC6 /* Pods-osteocare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = osteocare/Info.plist;
@@ -332,6 +344,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.osteocare;
 				PRODUCT_NAME = osteocare;
+				SWIFT_OBJC_BRIDGING_HEADER = "osteocare-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -341,6 +356,7 @@
 			baseConfigurationReference = 8AC623DBF3A3E2CB072F81F2 /* Pods-osteocare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = osteocare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -351,6 +367,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.osteocare;
 				PRODUCT_NAME = osteocare;
+				SWIFT_OBJC_BRIDGING_HEADER = "osteocare-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
