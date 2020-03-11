@@ -1,12 +1,12 @@
 import React from 'react';
-import {ScrollView, StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {ScrollView, StyleSheet, View, Text, TouchableOpacity, ShadowPropTypesIOS} from 'react-native';
 import { CustomGridButton } from '../components/CustomGridButton'
 import { BackNavHeader } from '../components/BackNavHeader'
 
-export default function WorkoutSelectionScreen() {
+export default function WorkoutSelectionScreen(props) {
   return (
     <View style={{flex: 1, flexDirection : 'column'}}>
-      {/* <BackNavHeader /> */}
+      <BackNavHeader onPress={props.navigateBack} />
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={{marginTop : 10, marginBottom : 10, fontSize : 18}}>
           Select body part

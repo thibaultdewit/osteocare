@@ -6,7 +6,7 @@ import { MonoText } from './StyledText';
 
 export function BackNavHeader(props) {
   return (
-    <TouchableOpacity style={styles.tabBarInfoContainer} onPress={() => {console.log('this is getting pressed')}}>
+    <TouchableOpacity style={styles.tabBarInfoContainer} onPress={props.onPress}>
         <Ionicons size={30} name='md-arrow-round-back' style={{marginLeft : 10, marginRight : 10}}/>
         {/* <MonoText style={styles.tabBarInfoText}>
           Click here to go back!

@@ -1,5 +1,5 @@
 import * as WebBrowser from 'expo-web-browser';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text, Button} from 'react-native';
 import HomeScreen from "./screens/HomeScreen"
 import WorkoutSelectionScreen from "./screens/WorkoutSelectionScreen";
@@ -8,33 +8,31 @@ import { BleManager } from 'react-native-ble-plx';
 
 export default function MainContainer() {
 
-    this.manager = new BleManager();
+    const [screen, setScreen] = useState('home'); 
 
-    const subscription = this.manager.onStateChange((state) => {
-        if (state === 'PoweredOn') {
-            this.scanAndConnect();
-            subscription.remove();
-        }
-    }, true);
+    manager = new BleManager();
+
+    // insert scan and connect function here
+
+
+    const navigateBack = () => {
+        setScreen('home')
+    }
 
     const startNewSession = () => {
-        console.log('start new workout session')
         setScreen('workoutselection')
     }
 
     const startBluetooth = () => {
-        console.log('start bluetooth function')
         setScreen('bluetooth')
     }
-
-    const [screen, setScreen] = useState('home'); 
 
     switch(screen) {
         case 'home':
             return (<HomeScreen startNewSession={startNewSession} startBluetooth={startBluetooth}/>)
         case 'workoutselection':
-            return (<WorkoutSelectionScreen />)
+            return (<WorkoutSelectionScreen navigateBack={navigateBack} />)
         case 'bluetooth':
-            return (<BluetoothScreen manager={this.manager} subscription={subscription}/>)    
+            return (<BluetoothScreen navigateBack={navigateBack}/>)    
     }
 }
