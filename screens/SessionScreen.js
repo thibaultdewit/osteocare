@@ -30,8 +30,12 @@ export default function SessionScreen(props) {
     <View style={{flex: 1, flexDirection: 'column'}}>
       <BackNavHeader onPress={props.navigateBack} title={'Active session'}/>
       <View style={{flex:1, flexDirection:'column'}}>
-        <View style={{flex:1, flexDirection:'row', justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={{fontSize: 60, color: '#2aafc0'}}>{Math.floor((timeLeft/60) % 60)} : {(timeLeft % 60)}</Text>
+        <View style={{flex:1, flexDirection:'row'}}>
+          <View style={{flex: 2}}></View>
+          <View style={{flex: 3, borderRadius : 7, justifyContent : 'center', alignItems : 'center', marginBottom : 35, marginTop : 35, borderColor: '#2aafc0', borderWidth: 1}}>
+            <Text style={{fontSize: 40, color: '#2aafc0'}}>{Math.floor((timeLeft/60) % 60)} : {(timeLeft % 60)}</Text>
+          </View>
+          <View style={{flex: 2}}></View>
         </View>
         <View style={{flex:1, flexDirection:'row', justifyContent: 'center', alignItems: 'center'}}>
           <ProgressBar progress={0.3} width={200} color='#2aafc0'/>
