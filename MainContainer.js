@@ -1,10 +1,11 @@
 import * as WebBrowser from 'expo-web-browser';
 import React, {useState, useEffect} from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, ShadowPropTypesIOS} from 'react-native';
 import HomeScreen from "./screens/HomeScreen"
 import WorkoutSelectionScreen from "./screens/WorkoutSelectionScreen";
 import BluetoothScreen from './screens/BluetoothScreen';
 import { BleManager } from 'react-native-ble-plx';
+import SessionScreen from './screens/SessionScreen';
 
 export default function MainContainer() {
 
@@ -21,7 +22,7 @@ export default function MainContainer() {
         setScreen('home')
     }
 
-    const startNewSession = () => {
+    const workoutSelection = () => {
         setScreen('workoutselection')
     }
 
@@ -29,12 +30,25 @@ export default function MainContainer() {
         setScreen('bluetooth')
     }
 
+    const startSession = () => {
+        setSessionActive(true)
+        setScreen('session')
+    }
+
+    const navigateSession = () => {
+        setScreen('session')
+    }
+
+
+
     switch(screen) {
         case 'home':
-            return (<HomeScreen sessionActive={sessionActive} startNewSession={startNewSession} startBluetooth={startBluetooth}/>)
+            return (<HomeScreen sessionActive={sessionActive} workoutSelection={workoutSelection} startBluetooth={startBluetooth} navigateSession={navigateSession} />)
         case 'workoutselection':
-            return (<WorkoutSelectionScreen navigateBack={navigateBack} />)
+            return (<WorkoutSelectionScreen startSession={startSession} navigateBack={navigateBack} />)
         case 'bluetooth':
             return (<BluetoothScreen navigateBack={navigateBack}/>)    
+        case 'session':
+            return (<SessionScreen navigateBack={navigateBack}/>)  
     }
 }

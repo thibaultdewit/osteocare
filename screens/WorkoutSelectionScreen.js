@@ -28,7 +28,7 @@ export default function WorkoutSelectionScreen(props) {
           <CustomGridButton title='Left torso'/>
           <CustomGridButton title='Right torso'/>
         </View>
-        <TouchableOpacity style={styles.startButton}>
+        <TouchableOpacity style={styles.startButton} onPress={props.startSession}>
           <Text style={{fontSize : 20, color:'#fff'}}>
             Start session
           </Text>

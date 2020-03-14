@@ -23,26 +23,12 @@ export function BackNavHeader(props) {
 
 const styles = StyleSheet.create({
   tabBarInfoContainer: {
-      alignSelf : 'stretch',
-      alignItems : 'start',
-      ...Platform.select({
-    }),
+    alignSelf : 'stretch',
+    alignItems : 'start',
     alignItems: 'center',
-    // backgroundColor: '#13fc03',
-    // opacity : 0.1,
     paddingVertical: 20,
-    flexDirection : 'row'
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  text: {
-      fontSize: 16,
-      textTransform: 'uppercase',
-      color: '#FFFFFF',
-      paddingLeft: 10,
-      paddingRight: 10
-  },
+    flexDirection : 'row',
+    // borderBottomColor : '#2aafc0', 
+    // borderBottomWidth : 1 
+  }
 });

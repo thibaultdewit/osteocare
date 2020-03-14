@@ -16,9 +16,9 @@ export default function HomeScreen(props) {
         <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={{fontSize : 32, color : '#2aafc0'}}>OsteoCare</Text>
         </View>
-        <LargeBorderButton onPress={props.startNewSession} title={'Start session'} />
+        <LargeBorderButton onPress={props.workoutSelection} title={'Start session'} />
         <LargeBorderButton onPress={props.startBluetooth} title={'Setup device'} />
-        <View style={{flex : 2, alignItems : 'center'}}>{props.sessionActive ? <ActiveSessionBar/> : null}</View>
+        <View style={{flex : 2, alignItems : 'center'}}>{props.sessionActive ? <ActiveSessionBar onPress={props.navigateSession}/> : null}</View>
       </View>
     </View>
   );
