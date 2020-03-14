@@ -7,16 +7,11 @@ import { MonoText } from './StyledText';
 
 export function ActiveSessionBar(props) {
   return (
-    <TouchableOpacity style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          Click here to access current session!
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            Time remaining: 11 min 15 sec
-          </MonoText>
+    <TouchableOpacity style={styles.tabBarInfoContainer} onPress={props.onPress}>
+        <View>
+          <Text style={{fontFamily: 'Arial'}}>
+            Time remaining in session: 11 min 24 sec
+          </Text>
         </View>        
     </TouchableOpacity>
   );

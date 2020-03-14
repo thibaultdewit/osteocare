@@ -1,8 +1,5 @@
-import React, { Component } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-
-import Colors from '../constants/Colors';
+import React from 'react';
+import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 
 export function CustomButton(props) {
   return (
@@ -30,7 +27,6 @@ const styles = StyleSheet.create({
       shadowOffset: { height: 10, width: 0 },
       shadowRadius: 20,
   },
-
   text: {
       fontSize: 16,
       textTransform: 'uppercase',

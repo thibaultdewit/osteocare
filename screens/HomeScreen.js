@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import { ActiveSessionBar} from '../components/ActiveSessionBar';
+import { LargeBorderButton } from '../components/LargeBorderButton';
 
 export default function HomeScreen(props) {
   return (
@@ -15,22 +16,10 @@ export default function HomeScreen(props) {
         <View style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
           <Text style={{fontSize : 32, color : '#2aafc0'}}>OsteoCare</Text>
         </View>
-        <View style={styles.buttonViewStyle}>
-          <TouchableOpacity 
-            onPress={props.startBluetooth} 
-            style={styles.buttonStyle}>
-            <Text style={{fontSize : 25, color : '#2aafc0'}}>Start session</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.buttonViewStyle}>
-          <TouchableOpacity 
-            onPress={props.startBluetooth} 
-            style={styles.buttonStyle}>
-            <Text style={{fontSize : 25, color : '#2aafc0'}}>Setup device</Text>
-          </TouchableOpacity>
-        </View>
+        <LargeBorderButton onPress={props.startNewSession} title={'Start session'} />
+        <LargeBorderButton onPress={props.startBluetooth} title={'Setup device'} />
+        <View style={{flex : 2, alignItems : 'center'}}>{props.sessionActive ? <ActiveSessionBar/> : null}</View>
       </View>
-      <View style={{alignItems : 'center'}}>{props.isSessionActive ? <ActiveSessionBar/> : null}</View>
     </View>
   );
 }

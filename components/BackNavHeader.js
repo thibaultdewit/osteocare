@@ -9,7 +9,7 @@ export function BackNavHeader(props) {
     <View style={styles.tabBarInfoContainer}>
       <View style={{flex: 1}}>
         <TouchableOpacity onPress={props.onPress}>
-          <Ionicons size={30} name='md-arrow-round-back' style={{marginLeft : 10, marginRight : 10}}/>
+          <Ionicons size={32} color = '#2aafc0' name='md-arrow-round-back' style={{marginLeft : 10, marginRight : 10}}/>
       </TouchableOpacity>
       </View>
       <View style={{alignItems: 'center', flex: 6}}>

@@ -9,6 +9,8 @@ import { BleManager } from 'react-native-ble-plx';
 export default function MainContainer() {
 
     const [screen, setScreen] = useState('home'); 
+    const [sessionActive, setSessionActive] = useState(false)
+    const [deviceConnected, setDeviceConnected] = useState(false)
 
     manager = new BleManager();
 
@@ -29,7 +31,7 @@ export default function MainContainer() {
 
     switch(screen) {
         case 'home':
-            return (<HomeScreen startNewSession={startNewSession} startBluetooth={startBluetooth}/>)
+            return (<HomeScreen sessionActive={sessionActive} startNewSession={startNewSession} startBluetooth={startBluetooth}/>)
         case 'workoutselection':
             return (<WorkoutSelectionScreen navigateBack={navigateBack} />)
         case 'bluetooth':
