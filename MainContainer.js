@@ -30,9 +30,8 @@ export default function MainContainer() {
         setScreen('bluetooth')
     }
 
-    const startSession = () => {
-        setSessionActive(true)
-        setScreen('session')
+    const switchSession = () => {
+        setSessionActive(!sessionActive)
     }
 
     const navigateSession = () => {
@@ -45,10 +44,10 @@ export default function MainContainer() {
         case 'home':
             return (<HomeScreen sessionActive={sessionActive} workoutSelection={workoutSelection} startBluetooth={startBluetooth} navigateSession={navigateSession} />)
         case 'workoutselection':
-            return (<WorkoutSelectionScreen startSession={startSession} navigateBack={navigateBack} />)
+            return (<WorkoutSelectionScreen navigateSession={navigateSession} navigateBack={navigateBack} />)
         case 'bluetooth':
             return (<BluetoothScreen navigateBack={navigateBack}/>)    
         case 'session':
-            return (<SessionScreen navigateBack={navigateBack}/>)  
+            return (<SessionScreen switchSession={switchSession} sessionActive={sessionActive} navigateBack={navigateBack}/>)  
     }
 }
