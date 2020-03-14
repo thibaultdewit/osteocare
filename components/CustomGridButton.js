@@ -25,16 +25,14 @@ const styles = StyleSheet.create({
       marginRight : 10,
       marginLeft : 10,
 
-      backgroundColor: '#2aafc0',
-      shadowColor: '#2aafc0',
-      shadowOpacity: 0.4,
-      shadowOffset: { height: 10, width: 0 },
-      shadowRadius: 20,
+      backgroundColor: '#ffffff',
+      borderColor : '#2aafc0',
+      borderWidth : 1,
   },
   text: {
       fontSize: 12,
       textTransform: 'uppercase',
-      color: '#FFFFFF',
+      color: '#2aafc0',
       paddingLeft: 10,
       paddingRight: 10
   },

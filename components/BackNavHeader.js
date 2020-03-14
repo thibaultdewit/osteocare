@@ -6,12 +6,18 @@ import { MonoText } from './StyledText';
 
 export function BackNavHeader(props) {
   return (
-    <TouchableOpacity style={styles.tabBarInfoContainer} onPress={props.onPress}>
-        <Ionicons size={30} name='md-arrow-round-back' style={{marginLeft : 10, marginRight : 10}}/>
-        {/* <MonoText style={styles.tabBarInfoText}>
-          Click here to go back!
-        </MonoText> */}
-    </TouchableOpacity>
+    <View style={styles.tabBarInfoContainer}>
+      <View style={{flex: 1}}>
+        <TouchableOpacity onPress={props.onPress}>
+          <Ionicons size={30} name='md-arrow-round-back' style={{marginLeft : 10, marginRight : 10}}/>
+      </TouchableOpacity>
+      </View>
+      <View style={{alignItems: 'center', flex: 6}}>
+        <Text style={{fontSize: 25, color : '#2aafc0'}}>{props.title}</Text>
+      </View>
+      <View style={{flex: 1}}>
+      </View>
+    </View>
   );
 }
 
@@ -20,18 +26,9 @@ const styles = StyleSheet.create({
       alignSelf : 'stretch',
       alignItems : 'start',
       ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
     }),
     alignItems: 'center',
-    backgroundColor: '#13fc03',
+    // backgroundColor: '#13fc03',
     // opacity : 0.1,
     paddingVertical: 20,
     flexDirection : 'row'

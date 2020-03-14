@@ -31,8 +31,8 @@ export default function BluetoothScreen(props) {
 
   return (
     <View>
-      <BackNavHeader onPress={props.navigateBack} />
-      <Text>This is the bluetooth screen</Text>
+      <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
+      <Text></Text>
       <CustomButton title='Scan devices' />
       <FlatList
         data={devices}
