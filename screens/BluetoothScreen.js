@@ -3,52 +3,74 @@ import {View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator} f
 import { ExpoConfigView } from '@expo/samples';
 import {List, ListItem} from 'react-native-elements'
 import { BackNavHeader } from '../components/BackNavHeader'
+import { BleManager } from 'react-native-ble-plx';
+
 
 
 export default function BluetoothScreen(props) {
 
-  const [device, setDevice] = useState('empty_device');
+  console.log('in bluetooth')
 
-  const [loading, setLoading]  = useState(false)
+  const [device, setDevice] = useState('empty');
 
-  const devices = [
-    {
-      name : 'device 1'
-    },
-    {
-      name : 'device 2'
-    },
-    {
-      name : 'device 3'
-    }
-  ]
+  const delayAndRun = () => {
+    setDevice('loading')
 
-  const renderRow = ({item}) => {
-    return (
-      <Text>{item.name}</Text>
-      // <ListItem title={item.name} />
-    )
+    setTimeout(function(){ setDevice('loaded') }, 3000);
   }
 
-  return (
-    <View style={{flex : 1, flexDirection : 'column'}}>
-      <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
-      <View></View>
-      <View style={styles.buttonViewStyle}>
-        {loading ? 
-        <ActivityIndicator size='large' /> : 
-        <TouchableOpacity onPress={props.onPress} style={styles.buttonStyle}>
-            <Text style={{fontSize : 25, color : '#2aafc0'}}>Search device</Text>
-        </TouchableOpacity>}
-      </View>
-      {/* <FlatList
-        data={devices}
-        renderItem={renderRow}
-        keyExtractor={item => item.name}
-      /> */}
-    </View>
-    );
+  switch(device) {
+      case 'empty':
+        return (
+          <View style={{flex : 1, flexDirection : 'column'}}>
+            <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
+            <View></View>
+            <View style={styles.buttonViewStyle}>
+              <TouchableOpacity onPress={delayAndRun} style={styles.buttonStyle}>
+                  <Text style={{fontSize : 25, color : '#2aafc0'}}>Search device</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )
+      case 'loading':
+        return(
+          <View style={{flex : 1, flexDirection : 'column'}}>
+            <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
+            <View></View>
+            <View style={styles.buttonViewStyle}>
+              <ActivityIndicator size='large' />
+            </View>
+          </View>
+        )
+      case 'loaded':
+        return(
+          <View style={{flex : 1, flexDirection : 'column'}}>
+          <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
+          <View></View>
+          <View style={styles.buttonViewStyle}>
+            <TouchableOpacity onPress={delayAndRun} style={styles.buttonStyle}>
+                <Text style={{fontSize : 25, color : 'green'}}>Device connected</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        )
+  }
 }
+
+  // return (
+  //   <View style={{flex : 1, flexDirection : 'column'}}>
+  //     <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
+  //     <View></View>
+  //     <View style={styles.buttonViewStyle}>
+  //       {loading ? 
+  //       <ActivityIndicator size='large' /> : 
+  //       <TouchableOpacity onPress={delayAndRun} style={styles.buttonStyle}>
+  //           <Text style={{fontSize : 25, color : '#2aafc0'}}>Search device</Text>
+  //       </TouchableOpacity>}
+  //     </View>
+  //   </View>
+  //   );
+  // }
 
 const styles = StyleSheet.create({
   buttonViewStyle : {
@@ -60,10 +82,18 @@ const styles = StyleSheet.create({
       alignItems : 'center', 
       justifyContent : 'center', 
       height : 220, width : 300, 
-      backgroundColor : 'blue', 
       borderRadius : 15, 
       backgroundColor : '#ffffff',
       borderColor : '#2aafc0',
-      borderWidth : 1
-  }
+      borderWidth : 2
+  },
+  buttonStyleGreen : {
+    alignItems : 'center', 
+    justifyContent : 'center', 
+    height : 220, width : 300, 
+    borderRadius : 15, 
+    backgroundColor : '#ffffff',
+    borderColor : 'green',
+    borderWidth : 2
+}
 });

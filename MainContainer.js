@@ -1,6 +1,4 @@
-import * as WebBrowser from 'expo-web-browser';
 import React, {useState, useEffect} from 'react';
-import {View, Text, Button, ShadowPropTypesIOS} from 'react-native';
 import HomeScreen from "./screens/HomeScreen"
 import WorkoutSelectionScreen from "./screens/WorkoutSelectionScreen";
 import BluetoothScreen from './screens/BluetoothScreen';
@@ -9,14 +7,53 @@ import SessionScreen from './screens/SessionScreen';
 
 export default function MainContainer() {
 
+    console.log('MAIN CONTAINER')
+
+    duration = 30 
+
     const [screen, setScreen] = useState('home'); 
-    const [sessionActive, setSessionActive] = useState(false)
     const [deviceConnected, setDeviceConnected] = useState(false)
+    const [timeLeft, setTimeLeft] = useState(duration)
+    const [timerOn, setTimerOn] = useState(false)
 
-    manager = new BleManager();
+    useEffect(() => {
+        console.log('use effect nothing')
+    })
 
-    // insert scan and connect function here
+    useEffect(() => {
+        console.log('use effect empty array')
+    }, [])
 
+    useEffect(() => {
+        console.log('use effect timerOn')
+        var count = timeLeft
+        if(timerOn) {
+            this.intervalObject = setInterval(() => {
+                count--
+                setTimeLeft(count)
+                if(count == 0) {
+                    clearInterval(this.intervalObject)
+                    setTimeLeft(duration)
+                    setTimerOn(false)
+                }
+              }, 1000);
+        } else if(!timerOn) {
+            clearInterval(this.intervalObject)
+        }
+    }, [timerOn]);
+
+    const startTimer = () => {
+        setTimerOn(true)
+    }
+
+    const pauseTimer = () =>  {
+        setTimerOn(false)
+    }
+
+    const stopTimer = () => {
+        setTimerOn(false)
+        setTimeLeft(duration)
+    }
 
     const navigateBack = () => {
         setScreen('home')
@@ -30,10 +67,6 @@ export default function MainContainer() {
         setScreen('bluetooth')
     }
 
-    const switchSession = () => {
-        setSessionActive(!sessionActive)
-    }
-
     const navigateSession = () => {
         setScreen('session')
     }
@@ -42,12 +75,12 @@ export default function MainContainer() {
 
     switch(screen) {
         case 'home':
-            return (<HomeScreen sessionActive={sessionActive} workoutSelection={workoutSelection} startBluetooth={startBluetooth} navigateSession={navigateSession} />)
+            return (<HomeScreen timeLeft={timeLeft} timerOn={timerOn} workoutSelection={workoutSelection} startBluetooth={startBluetooth} navigateSession={navigateSession} />)
         case 'workoutselection':
             return (<WorkoutSelectionScreen navigateSession={navigateSession} navigateBack={navigateBack} />)
         case 'bluetooth':
             return (<BluetoothScreen navigateBack={navigateBack}/>)    
         case 'session':
-            return (<SessionScreen switchSession={switchSession} sessionActive={sessionActive} navigateBack={navigateBack}/>)  
+            return (<SessionScreen duration={duration} timerOn={timerOn} stopTimer={stopTimer} pauseTimer={pauseTimer} startTimer={startTimer} timeLeft={timeLeft} setTimerOn={setTimerOn} navigateBack={navigateBack}/>)  
     }
 }

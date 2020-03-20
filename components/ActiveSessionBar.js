@@ -10,7 +10,7 @@ export function ActiveSessionBar(props) {
     <TouchableOpacity style={styles.tabBarInfoContainer} onPress={props.onPress}>
         <View>
           <Text style={{fontFamily: 'Arial', color : '#ffffff'}}>
-            Time remaining in session: 11 min 24 sec
+            Time remaining in session: {Math.floor((props.timeLeft/60) % 60)} min {(props.timeLeft % 60)} sec
           </Text>
         </View>        
     </TouchableOpacity>
