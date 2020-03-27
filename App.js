@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Platform, StatusBar, StyleSheet, View, Text, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import auth, { firebase } from '@react-native-firebase/auth';
+import auth, {firebase} from '@react-native-firebase/auth';
 
 import AppNavigator from './navigation/AppNavigator';
 
@@ -12,8 +12,8 @@ export default function App(props) {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
  
   // Handle user state changes
@@ -26,6 +26,20 @@ export default function App(props) {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);
+
+  const register = async () => {
+    try {
+      await auth().createUserWithEmailAndPassword(email, password)
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
+
+  const signup = () => {
+    console.log('in signup function')
+    console.log(email)
+    console.log(password)
+  }
  
   if (initializing) return null;
 
@@ -40,14 +54,14 @@ export default function App(props) {
             style={styles.inputText}
             placeholder="Email..." 
             placeholderTextColor="#2aafc0"
-            onChangeText={text => this.setState({email:text})}/>
+            onChangeText={setEmail(text)}/>
         </View>
         <View style={styles.inputView} >
           <TextInput  
             style={styles.inputText}
             placeholder="Password..." 
             placeholderTextColor="#2aafc0"
-            onChangeText={text => this.setState({email:text})}/>
+            onChangeText={setPassword(text)}/>
         </View>
         <TouchableOpacity>
           <Text style={styles.forgot}>Forgot Password?</Text>
@@ -55,7 +69,7 @@ export default function App(props) {
         <TouchableOpacity style={styles.loginBtn}>
           <Text style={styles.loginText}>LOGIN</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={signup}>
           <Text style={styles.loginText}>Signup</Text>
         </TouchableOpacity>
       </View>
