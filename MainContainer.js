@@ -13,8 +13,10 @@ export default function MainContainer() {
 
     const [screen, setScreen] = useState('home'); 
     const [deviceConnected, setDeviceConnected] = useState(false)
+    const [deviceObject, setDeviceObject] = useState()
     const [timeLeft, setTimeLeft] = useState(duration)
     const [timerOn, setTimerOn] = useState(false)
+    const [bodyPart, setBodyPart] = useState()
 
     useEffect(() => {
         console.log('use effect nothing')
@@ -41,6 +43,14 @@ export default function MainContainer() {
             clearInterval(this.intervalObject)
         }
     }, [timerOn]);
+
+    const scanDevices = () => {
+
+    }
+
+    const pairDevice = () => {
+
+    }
 
     const startTimer = () => {
         setTimerOn(true)
@@ -71,16 +81,24 @@ export default function MainContainer() {
         setScreen('session')
     }
 
-
-
     switch(screen) {
         case 'home':
-            return (<HomeScreen timeLeft={timeLeft} timerOn={timerOn} workoutSelection={workoutSelection} startBluetooth={startBluetooth} navigateSession={navigateSession} />)
+            return (<HomeScreen 
+                timeLeft={timeLeft} timerOn={timerOn} 
+                workoutSelection={workoutSelection} startBluetooth={startBluetooth} 
+                navigateSession={navigateSession} />)
         case 'workoutselection':
-            return (<WorkoutSelectionScreen navigateSession={navigateSession} navigateBack={navigateBack} />)
+            return (<WorkoutSelectionScreen 
+                bodyPart={bodyPart} navigateSession={navigateSession} navigateBack={navigateBack} />)
         case 'bluetooth':
-            return (<BluetoothScreen navigateBack={navigateBack}/>)    
+            return (<BluetoothScreen
+                scanDevices={scanDevices} pairDevice={pairDevice}
+                navigateBack={navigateBack}
+                deviceConnected={deviceConnected} deviceObject={deviceObject} />)    
         case 'session':
-            return (<SessionScreen duration={duration} timerOn={timerOn} stopTimer={stopTimer} pauseTimer={pauseTimer} startTimer={startTimer} timeLeft={timeLeft} setTimerOn={setTimerOn} navigateBack={navigateBack}/>)  
+            return (<SessionScreen 
+                duration={duration} timerOn={timerOn} stopTimer={stopTimer} 
+                pauseTimer={pauseTimer} startTimer={startTimer} timeLeft={timeLeft} 
+                navigateBack={navigateBack}/>)  
     }
 }

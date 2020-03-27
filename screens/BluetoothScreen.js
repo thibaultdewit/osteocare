@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator} from 'react-native';
-import { ExpoConfigView } from '@expo/samples';
-import {List, ListItem} from 'react-native-elements'
 import { BackNavHeader } from '../components/BackNavHeader'
 import { BleManager } from 'react-native-ble-plx';
-
-
 
 export default function BluetoothScreen(props) {
 
@@ -48,7 +44,7 @@ export default function BluetoothScreen(props) {
           <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
           <View></View>
           <View style={styles.buttonViewStyle}>
-            <TouchableOpacity onPress={delayAndRun} style={styles.buttonStyle}>
+            <TouchableOpacity onPress={delayAndRun} style={styles.buttonStyleGreen}>
                 <Text style={{fontSize : 25, color : 'green'}}>Device connected</Text>
             </TouchableOpacity>
           </View>
@@ -56,21 +52,6 @@ export default function BluetoothScreen(props) {
         )
   }
 }
-
-  // return (
-  //   <View style={{flex : 1, flexDirection : 'column'}}>
-  //     <BackNavHeader onPress={props.navigateBack} title={'Setup remote device'}/>
-  //     <View></View>
-  //     <View style={styles.buttonViewStyle}>
-  //       {loading ? 
-  //       <ActivityIndicator size='large' /> : 
-  //       <TouchableOpacity onPress={delayAndRun} style={styles.buttonStyle}>
-  //           <Text style={{fontSize : 25, color : '#2aafc0'}}>Search device</Text>
-  //       </TouchableOpacity>}
-  //     </View>
-  //   </View>
-  //   );
-  // }
 
 const styles = StyleSheet.create({
   buttonViewStyle : {
