@@ -1,6 +1,0 @@
-module Pods_osteocare {
-  umbrella header "Pods-osteocare-umbrella.h"
-
-  export *
-  module * { export * }
-}

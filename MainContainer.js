@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import HomeScreen from "./screens/HomeScreen"
 import WorkoutSelectionScreen from "./screens/WorkoutSelectionScreen";
 import BluetoothScreen from './screens/BluetoothScreen';
-import { BleManager } from 'react-native-ble-plx';
 import SessionScreen from './screens/SessionScreen';
 
 export default function MainContainer() {

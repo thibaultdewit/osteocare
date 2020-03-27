@@ -354,16 +354,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>react-native-ble-plx-swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>react-native-ble-plx.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict/>

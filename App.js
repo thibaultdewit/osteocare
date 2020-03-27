@@ -27,7 +27,20 @@ export default function App(props) {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  const register = async () => {
+  const test = (input) => {
+    console.log('in test')
+    console.log(input)
+  }
+
+  const handleEmail = (input) => {
+    setEmail(input)
+  }
+
+  const handlePassword = (input) => {
+    setPassword(input)
+  }
+
+  const signup = async () => {
     try {
       await auth().createUserWithEmailAndPassword(email, password)
     } catch (error) {
@@ -35,15 +48,15 @@ export default function App(props) {
     }
   }
 
-  const signup = () => {
-    console.log('in signup function')
-    console.log(email)
-    console.log(password)
-  }
+  // const signup = () => {
+  //   console.log('in signup function')
+  //   console.log(email)
+  //   console.log(password)
+  // }
  
   if (initializing) return null;
 
-  if (false) {
+  if (!user) {
     return (
       <View style={styles.loginContainer}>
         <View style={styles.headerTextView}>
@@ -54,14 +67,17 @@ export default function App(props) {
             style={styles.inputText}
             placeholder="Email..." 
             placeholderTextColor="#2aafc0"
-            onChangeText={setEmail(text)}/>
+            value={email}
+            onChangeText={input => setEmail(input)}/>
         </View>
         <View style={styles.inputView} >
           <TextInput  
             style={styles.inputText}
+            secureTextEntry={true}
             placeholder="Password..." 
             placeholderTextColor="#2aafc0"
-            onChangeText={setPassword(text)}/>
+            value={password}
+            onChangeText={input => setPassword(input)}/>
         </View>
         <TouchableOpacity>
           <Text style={styles.forgot}>Forgot Password?</Text>
@@ -123,7 +139,7 @@ const styles = StyleSheet.create({
   },
   inputText:{
     height:50,
-    color:"white"
+    color:"black"
   },
   forgot:{
     color:"white",

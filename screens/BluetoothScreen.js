@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList, StyleSheet, TouchableOpacity, ActivityIndicator} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, ActivityIndicator} from 'react-native';
 import { BackNavHeader } from '../components/BackNavHeader'
-import { BleManager } from 'react-native-ble-plx';
 
 export default function BluetoothScreen(props) {
 
